@@ -1,8 +1,8 @@
 from requests import get
-from decouple import config
+from os import environ
 from time import sleep
 
-url = config("SERVER_URL")
+url = environ.get("SERVER_URL")
 
 answer = None
 while answer == None:

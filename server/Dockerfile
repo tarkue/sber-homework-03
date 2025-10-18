@@ -1,16 +1,16 @@
 FROM python:3.9
 
 
-WORKDIR /server-app
+WORKDIR /app
 
 
-COPY ./requirements.txt /server-app/requirements.txt
+COPY ./requirements.txt /app/requirements.txt
 
 
-RUN pip install --no-cache-dir --upgrade -r /server-app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 
-COPY ./ /server-app/
+COPY ./ /app/
 
 
 CMD ["python", "main.py"]
