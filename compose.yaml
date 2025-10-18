@@ -1,0 +1,21 @@
+services:
+  server: 
+    build: ./server
+    networks:
+      - sber-internal-network
+    ports:
+      - "8000:8000"
+
+
+  client:
+    build: ./client
+    environment:
+      - SERVER_URL=http://server:8000
+    networks:
+      - sber-internal-network    
+    depends_on:
+      - server
+
+networks:
+  sber-internal-network:
+    internal: true
